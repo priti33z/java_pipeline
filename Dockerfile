@@ -1,4 +1,17 @@
-FROM tomcat:latest
-MAINTAINER Ashok <ashok@oracle.coms>
+# Use official Tomcat base image
+FROM tomcat:9.0-jdk17-temurin
+
+# Maintainer information (optional)
+LABEL maintainer="Priti Zaware <priti@example.com>"
+
+# Remove default ROOT app to avoid conflicts
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
+
+# Copy our WAR file into Tomcat webapps folder
+COPY target/maven-web-app.war /usr/local/tomcat/webapps/ROOT.war
+
+# Expose Tomcat default port
 EXPOSE 8080
-COPY target/maven-web-app.war /usr/local/tomcat/webapps/maven-web-app.war
+
+# Start Tomcat
+CMD ["catalina.sh", "run"]  
