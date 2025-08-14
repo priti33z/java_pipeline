@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: mavenwebapp-container
-          image: priti/minijava:latest
+          image: priti/minijava 
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
