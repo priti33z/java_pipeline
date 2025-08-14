@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Mini {
+public class mini {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int myNumber = (int)(Math.random() * 100) + 1;
