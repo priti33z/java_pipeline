@@ -6,9 +6,9 @@ pipeline {
         maven "Maven-3.9.11"
     }
     stages {
-        stage('Clone') {
+        stage('Clone Repo') {
             steps {
-            https://github.com/priti33z/java_pipeline.git
+             git branch: 'main', url: 'https://github.com/priti33z/java_pipeline.git'
             }
         }
         stage('Build') {
