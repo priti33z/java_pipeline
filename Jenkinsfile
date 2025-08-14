@@ -11,7 +11,7 @@ pipeline {
              git branch: 'main', url: 'https://github.com/priti33z/java_pipeline.git'
             }
         }
-        stage('Build') {
+        stage('Mavaen Build') {
             steps {
                sh 'mvn clean package'
             }
