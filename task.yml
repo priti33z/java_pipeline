@@ -10,13 +10,13 @@
     - name: Copy Artifact (.war file)
       copy:
         src: target/maven-web-app.war
-        dest: /home/ansadmin/
+        dest: java_pipeline/maven-web-app.war
 
     - name: Build Docker image
       command: docker build -t priti/minijava .
 
     - name: Push Docker image to Docker Hub
-      command: docker push priti/minijava .
+      command: docker push priti/minijava
 
 - name: Second Play - K8s Deployment
   hosts: eks
@@ -26,8 +26,5 @@
         src: k8s-deploy.yml
         dest: java_pipeline/k8s-deploy.yml
 
-
     - name: Deploy to Kubernetes
-      command: kubectl apply -f java_pipeline
-/docker-k8s-jenkinsfile
-
+      command: kubectl apply -f java_pipeline/k8s-deploy.yml
