@@ -9,8 +9,8 @@
 
     - name: Copy Artifact (.war file)
       copy:
-        src: target/maven-web-app.war
-        dest: java_pipeline/maven-web-app.war
+        src: target/java_pipeline.war
+        dest: java_pipeline/mini.war
 
     - name: Build Docker image
       command: docker build -t priti/minijava .
