@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>priti</groupId>
-    <artifactId>maven-web-app</artifactId>
+    <artifactId>java_pipeline</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>minijava</name>
@@ -22,7 +22,7 @@
     </dependencies>
 
     <build>
-        <finalName>maven-web-app</finalName>
+        <finalName>java_pipeline</finalName>
         <plugins>
             <!-- WAR Plugin -->
             <plugin>
