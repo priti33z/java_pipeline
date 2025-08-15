@@ -8,7 +8,7 @@ LABEL maintainer="Priti Zaware <priti@example.com>"
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 # Copy our WAR file into Tomcat webapps folder
-COPY target/maven-web-app.war /usr/local/tomcat/webapps/ROOT.war
+COPY target/java_pipeline.war /usr/local/tomcat/webapps/ROOT.war
 
 # Expose Tomcat default port
 EXPOSE 8080
