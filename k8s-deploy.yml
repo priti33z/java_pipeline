@@ -3,10 +3,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: minijava-deployment
+  labels:
+    app: minijava
 spec:
   replicas: 2
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: minijava
@@ -17,10 +22,10 @@ spec:
     spec:
       containers:
         - name: minijava-container
-          image: priti/minijava
+          image: priti/minijava:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8081   # जर Dockerfile मध्ये 8081 ठेवला असेल तर
+            - containerPort: 8081
 ---
 apiVersion: v1
 kind: Service
@@ -31,6 +36,6 @@ spec:
   selector:
     app: minijava
   ports:
-    - port: 80
-      targetPort: 8081   # Deployment मध्ये दिलेल्या containerPort शी match करावा
-...
+    - name: http
+      port: 80
+      targetPort: 8081
