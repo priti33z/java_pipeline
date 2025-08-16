@@ -1,4 +1,5 @@
 FROM tomcat:latest
 LABEL maintainer="Priti <priti@ubuntu.com>"
 EXPOSE 8080
-COPY target/java_pipeline.war /usr/local/tomcat/webapps/java_pipeline.war
+COPY target/java_pipeline.war /usr/local/tomcat/webapps/ROOT.war
+
