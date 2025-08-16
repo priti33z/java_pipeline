@@ -2,34 +2,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mavenwebapp-deployment
+  name: minijava-deployment
 spec:
   replicas: 2
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: mavenwebapp
+      app: minijava
   template:
     metadata:
       labels:
-        app: mavenwebapp
+        app: minijava
     spec:
       containers:
-        - name: mavenwebapp-container
-          image: priti/minijava 
+        - name: minijava-container
+          image: priti/minijava
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 8081   # जर Dockerfile मध्ये 8081 ठेवला असेल तर
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mavenwebapp-service
+  name: minijava-service
 spec:
   type: LoadBalancer
   selector:
-    app: mavenwebapp
+    app: minijava
   ports:
     - port: 80
-      targetPort: 8080
+      targetPort: 8081   # Deployment मध्ये दिलेल्या containerPort शी match करावा
+...
