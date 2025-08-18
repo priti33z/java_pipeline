@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,7 +21,7 @@ spec:
     spec:
       containers:
         - name: minijava-container
-          image: priti/minijava:latest   # push केलेलं image
+          image: pritiz/minijava:latest   # ✅ DockerHub वर push केलेलं image
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -39,4 +38,3 @@ spec:
     - name: http
       port: 80
       targetPort: 8080
-
