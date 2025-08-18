@@ -4,4 +4,5 @@ LABEL maintainer="Priti <priti@ubuntu.com>"
 EXPOSE 8080
 
 # Copy the correct WAR file
-COPY target/java_pipeline.war /usr/local/tomcat/webapps/
+COPY /var/lib/jenkins/workspace/priti_ci_job/target/java_pipeline.war
+
