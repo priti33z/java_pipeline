@@ -20,7 +20,7 @@ spec:
         app: minijava
     spec:
       containers:
-        - name: minijava-container
+        - name: minijava
           image: pritiz/minijava:latest   # ✅ DockerHub वर push केलेलं image
           imagePullPolicy: Always
           ports:
